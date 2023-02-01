@@ -1,3 +1,20 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <title>Document</title>
+</head>
+<body>
+    <a href="/users/logout">Logout</a>
+    <h1>Dashboard <%= user %></h1>
+
+
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,15 +36,9 @@
   <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/vendor/bootstrap3.3/css/bootstrap.min.css">
-
-<!-- jQuey, Popper, BootstrapJS -->
-<script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
-<script src="bootstrap3.3/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link href="/assets/css/chat.css" rel="stylesheet">
 </head>
 <body>
 
@@ -58,48 +69,52 @@
     </div>
   </header><!-- End Header -->
 
+<!-- Search Section  -->
+  <section id="contact" class="contact">
+    <div class="container">
 
-
-<!-- LEFT SECTION -->
-
-<section id="main-left" class="main-left">
-    <!-- header -->
-    <div id="header-left" class="header-left">
-      
-    </div>
-
-    <% if(chat.length === 0) { %>
-      <h2 >Empty</h2>
-        <% } else{ chat.forEach(entry => { %>
-    <!-- chat list -->
-    <div id="chat-list" class="chat-list">
-      <!-- user lists -->
-      <div id="friends" class="friends">
-        <!-- photo -->
-        <div class="profile friends-photo">
-          <img src="images/ava2.jpg" alt="">
+      <div class="section-title">
+        <div class="">
+          <h1>Welcome <%= user %></h1>
         </div>
-        
-        <div class="friends-credent">
-          <!-- name -->
-          <span class="friends-name">
-            <%= entry.name%>
-                    <a href="/users/chat_box/<%= entry.id%>">open</a>
-                </span>
-        </div>
-        <!-- notification badge -->
-        <span class="badge notif-badge"><%= entry.count%></span>
+        <br>
+        <br>
       </div>
 
+      <!-- Search -->
+      <div class="card text-center">
+        <div class="card-header">
 
-    <% }) }%>
-  </section>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Search Service Providers</h5>
+          <p class="card-text">Look for the vendors and event planners according to your preferences.</p>
+          <a href="/users/search" class="btn btn-success">Search</a>
+        </div>
+        <!-- <div class="card-footer text-muted">
+          2 days ago
+        </div> -->
+      </div>
+      <br><br><br><br><br>
+      <!-- Create Event -->
+      <div class="card text-center">
+        <div class="card-header">
 
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Create and View Events</h5>
+          <p class="card-text">View your events and create new ones.</p>
+          <a href="/users/event" class="btn btn-success">Create</a>
+        </div>
+        <!-- <div class="card-footer text-muted">
+          2 days ago
+        </div> -->
+      </div>
 
+    </div>
+  </section><!-- End SearchS Section -->
 
-
-
-      <!-- ======= Footer ======= -->
+    <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <h3>Event.ly</h3>
@@ -126,7 +141,7 @@
   <script src="/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
 
 </body>
 </html>

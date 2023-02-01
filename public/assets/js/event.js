@@ -28,4 +28,19 @@ $(document).ready(function(){
         let event_name = $(this).data('event-name');
         let event_description = $(this).data('event-description');
     });
+    $('.participants-event').on('click',function(){
+        // $('#edit-form-name').val($(this).data('name'));
+        // $('#participants-form-participants').val($(this).data('participants'));
+        console.log('event-participants');
+        $('#participants-form-id').val($(this).data('id'));
+        let event_id = $(this).data('event-id');
+        let event_participants = $(this).data('event-participants');
+    });
+    $('.accept').on('click',function(){
+        // $('#edit-form-name').val($(this).data('name'));
+        // $('#participants-form-participants').val($(this).data('participants'));
+        $('#accept-form-id').val($(this).data('id'));
+        let event_id = $(this).data('event-id');
+        // let event_participants = $(this).data('event-participants');
+    });
 });

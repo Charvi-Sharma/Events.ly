@@ -35,9 +35,12 @@
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-              <li><a class="nav-link scrollto" href="/users/dashboard">Dashboard</a></li>
+              <li><a class="nav-link scrollto" href="/users/dashboard">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto" href="#services">Services</a></li>
+              <li><a class="nav-link scrollto" href="/users/profile">Profile</a></li>
+              <li><a class="nav-link scrollto" href="/users/invite">Invites</a></li>
+              <li><a class="nav-link scrollto" href="/users/my_chat">My Chats</a></li>
               <li><a class="nav-link scrollto" href="/users/logout">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -63,13 +66,13 @@
 
       <form class="" action="/users/query" method="post">
         <div class="">
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type"  onchange="yesnoCheck(this);">
             <option selected>Service Provider</option>
             <option value="1" name="EP">Event Planner</option>
             <option value="2" name="Vendor">Vendor</option>
           </select>
         </div>
-        <div class="">
+        <div class=""  id="ifYes" style="display: none;">
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="speciality">
             <option selected>Speciality</option>
             <option value="1" name="Catering">Catering</option>
@@ -77,6 +80,7 @@
             <option value="3" name="Transportation">Transportation</option>
             <option value="4" name="Hall">Hall</option>
             <option value="5" name="DJ">DJ</option>
+            <option value="6" name="Event_Planner">Event Planner</option>
           </select>
         </div>
         <div class="search-button" style="align:center;">
@@ -117,6 +121,6 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
-
+  <script src="/assets/js/search.js"></script>
 </body>
 </html>

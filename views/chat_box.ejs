@@ -41,9 +41,12 @@
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-              <li><a class="nav-link scrollto" href="/">Home</a></li>
+              <li><a class="nav-link scrollto" href="/users/dashboard">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto" href="#services">Services</a></li>
+              <!-- <li><a class="nav-link scrollto" href="/users/profile">Profile</a></li>
+              <li><a class="nav-link scrollto" href="/users/invite">Invites</a></li> -->
+              <li><a class="nav-link scrollto" href="/users/my_chat">My Chats</a></li>
               <li><a class="nav-link scrollto" href="/users/logout">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -109,9 +112,7 @@
           <img src="images/ava2.jpg" alt="">
         </div>
         <div class="friends-chat-content">
-          <p class="friends-chat-name">Mario Gomez</p>
           <p class="friends-chat-balloon">Start a Conversation</p>
-          <h5 class="chat-datetime">Seen</h5>
         </div>
       </div>
   <% } else{ chat.forEach(entry => { %>
@@ -121,9 +122,7 @@
         <img src="images/ava2.jpg" alt="">
       </div>
       <div class="friends-chat-content">
-        <p class="friends-chat-name"><%= entry.msg_sender %></p>
         <p class="friends-chat-balloon"><%= entry.msg %></p>
-        <h5 class="chat-datetime">Sun, Aug 30 | 15:41</h5>
       </div>
     </div>
     <% } else { %>

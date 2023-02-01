@@ -41,9 +41,12 @@
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-              <li><a class="nav-link scrollto" href="/users/dashboard">Dashboard</a></li>
+              <li><a class="nav-link scrollto" href="/users/dashboard">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto" href="#services">Services</a></li>
+              <!-- <li><a class="nav-link scrollto" href="/users/profile">Profile</a></li>
+              <li><a class="nav-link scrollto" href="/users/invite">Invites</a></li> -->
+              <li><a class="nav-link scrollto" href="/users/my_chat">My Chats</a></li>
               <li><a class="nav-link scrollto" href="/users/logout">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -78,11 +81,27 @@
           <div class="collapse" id="event_<%= entry.event_id %>">
               <br/>
               <br/>
+              <!-- New Integration -->
+                <p><strong>Participants: </strong>
+                    <br/><% entry.event_participants.forEach(ent => { %>
+                      <p><%= ent.first_name %> <%= ent.last_name %> </p>
+
+                   <% })%> 
+                </p>
+                <br/>
+                <br/>
+
               <p><strong>Description: </strong>
                   <br/><%= entry.event_description %>
               </p>
               <br/>
               <hr/>
+
+              <!-- New Integration -->
+              <button type="button" name="button" class="btn btn-success participants-event" data-toggle="modal"
+              data-target="#participantsFormModal" data-id="<%= entry.event_id %>" data-participants="<%= entry.event_participants %>" >Add Participants</button>
+
+
               <button class="btn btn-secondary edit-event"
                 data-toggle="modal"
                 data-target="#editFormModal"
@@ -164,6 +183,41 @@
           </div>
       </div>
 
+
+      <!-- New Integration -->
+
+<!-- Add Participants Modal -->
+<div class="modal fade" id="participantsFormModal" tabindex="-1" role="dialog" aria-labelledby="participantsFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form method="POST" action="/users/event_participants">
+          <input type="hidden" id="participants-form-id" name="id">
+            <div class="modal-header">
+                <h5 class="modal-title" id="participantsFormModalLabel">Add service provider</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-group">
+                          <label for="name">Username</label>
+                          <input type="text" class="form-control" name="participants" id="participants-form-participants">
+                  </div>
+                  <!-- <div class="form-group">
+                          <label for="name">Description</label>
+                          <pre>
+                              <textarea class="form-control" name="description" id="edit-form-description" rows="6"></textarea>
+                          </pre>
+                  </div> -->
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <input type="submit" class="btn btn-success" value="Add"/>
+              </div>
+          </form>
+    </div>
+  </div>
+</div>
 
 
         </div>

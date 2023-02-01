@@ -19,15 +19,9 @@
   <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/vendor/bootstrap3.3/css/bootstrap.min.css">
-
-<!-- jQuey, Popper, BootstrapJS -->
-<script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
-<script src="bootstrap3.3/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link href="/assets/css/chat.css" rel="stylesheet">
 </head>
 <body>
 
@@ -44,8 +38,7 @@
               <li><a class="nav-link scrollto" href="/users/dashboard">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
               <li><a class="nav-link scrollto" href="#services">Services</a></li>
-              <!-- <li><a class="nav-link scrollto" href="/users/profile">Profile</a></li>
-              <li><a class="nav-link scrollto" href="/users/invite">Invites</a></li> -->
+              <li><a class="nav-link scrollto" href="/users/invite">Invites</a></li>
               <li><a class="nav-link scrollto" href="/users/my_chat">My Chats</a></li>
               <li><a class="nav-link scrollto" href="/users/logout">Logout</a></li>
             </ul>
@@ -58,48 +51,41 @@
     </div>
   </header><!-- End Header -->
 
+<!-- Search Section  -->
+  <section id="contact" class="contact">
+    <div class="container">
 
-
-<!-- LEFT SECTION -->
-
-<section id="main-left" class="main-left">
-    <!-- header -->
-    <div id="header-left" class="header-left">
-      
-    </div>
-
-    <% if(chat.length === 0) { %>
-      <h2 >Empty</h2>
-        <% } else{ chat.forEach(entry => { %>
-    <!-- chat list -->
-    <div id="chat-list" class="chat-list">
-      <!-- user lists -->
-      <div id="friends" class="friends">
-        <!-- photo -->
-        <div class="profile friends-photo">
-          <img src="images/ava2.jpg" alt="">
+      <div class="section-title">
+        <div class="">
+          <h2>My Profile</h2>
         </div>
-        
-        <div class="friends-credent">
-          <!-- name -->
-          <span class="friends-name">
-            <%= entry.name%>
-                    <a href="/users/chat_box/<%= entry.id%>">open</a>
-                </span>
-        </div>
-        <!-- notification badge -->
-        <span class="badge notif-badge"><%= entry.count%></span>
+        <br>
+        <br>
       </div>
 
 
-    <% }) }%>
-  </section>
+
+    <% service_provider.forEach(entry => { %>
+    <div class="card text-center">
+      <div class="card-header">
+        <%= entry.sp_speciality %> - <%= entry.first_name %> <%= entry.last_name %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= entry.prof_tagline %></h5>
+        <p class="card-text"><%= entry.prof_description %></p>
+      </div>
+      <!-- <div class="card-footer text-muted">
+        2 days ago
+      </div> -->
+    </div>
+    <br><br><br>
+    <% }) %>
 
 
+    </div>
+  </section><!-- End SearchS Section -->
 
-
-
-      <!-- ======= Footer ======= -->
+    <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <h3>Event.ly</h3>
@@ -126,7 +112,7 @@
   <script src="/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
 
 </body>
 </html>
